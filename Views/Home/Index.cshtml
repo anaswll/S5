@@ -1,15 +1,31 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@inject UserManager<ApplicationUser> UserManager
+@{
+    var user = (await UserManager.GetUserAsync(User));
+   
+}
+
 <!-- Header -->
 @await Html.PartialAsync("_research")
+
 <div class="site-section bg-light">
     <div class="container">
         <div class="row justify-content-start text-left mb-5">
             <div class="col-md-9" data-aos="fade">
                 <h2 class="font-weight-bold text-black">Recent Jobs</h2>
             </div>
-
+            @if (user != null)
+            {
+                bool x = await UserManager.IsInRoleAsync(user, "user");
+                if (!x)
+                {
+                    <div class="col-md-3" data-aos="fade" data-aos-delay="200">
+                        <a class="btn btn-primary py-3 btn-block" asp-area="" asp-controller="Jobs" asp-action="addjobs"><span class="h5">+</span> Post a Job</a>
+                    </div>
+                }
+            }
         </div>
 
         <div class="row" data-aos="fade">

@@ -22,7 +22,7 @@ namespace IdentityDemo.Controllers
         }
 
         // GET: Jobs/Create
-        public ActionResult Create()
+        public ActionResult addjobs()
         {
             return View();
         }

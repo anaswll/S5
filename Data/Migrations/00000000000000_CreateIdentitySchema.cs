@@ -150,6 +150,9 @@ namespace IdentityDemo.Data.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            
+         
+
             migrationBuilder.CreateIndex(
                 name: "RoleNameIndex",
                 table: "AspNetRoles",
@@ -190,6 +193,7 @@ namespace IdentityDemo.Data.Migrations
                 table: "AspNetUsers",
                 column: "NormalizedUserName",
                 unique: true);
+               
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
