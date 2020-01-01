@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using JobBoard.Entities.dbModels;
 
 namespace IdentityDemo.Models.ManageViewModels
 {
@@ -23,5 +24,7 @@ namespace IdentityDemo.Models.ManageViewModels
         [Required(ErrorMessage = "End date is required")]
         public DateTime EndDate { get; set; }
         public List<WorkingExperience> ResumeWorkingExperiences { get; set; }
+
+
     }
 }

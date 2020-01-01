@@ -15,6 +15,7 @@ namespace IdentityDemo.Data
         {
         }
 
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
@@ -23,4 +24,5 @@ namespace IdentityDemo.Data
             // Add your customizations after calling base.OnModelCreating(builder);
         }
     }
+
 }

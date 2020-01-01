@@ -150,9 +150,6 @@ namespace IdentityDemo.Data.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            
-         
-
             migrationBuilder.CreateIndex(
                 name: "RoleNameIndex",
                 table: "AspNetRoles",
@@ -181,7 +178,7 @@ namespace IdentityDemo.Data.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetUserRoles_UserId",
                 table: "AspNetUserRoles",
-                column: "UserId");
+                column: "Id");
 
             migrationBuilder.CreateIndex(
                 name: "EmailIndex",
@@ -193,7 +190,6 @@ namespace IdentityDemo.Data.Migrations
                 table: "AspNetUsers",
                 column: "NormalizedUserName",
                 unique: true);
-               
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -218,6 +214,7 @@ namespace IdentityDemo.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
         }
     }
 }
