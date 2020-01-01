@@ -107,7 +107,73 @@ namespace IdentityDemo.Controllers
             StatusMessage = "Your profile has been updated";
             return RedirectToAction(nameof(Index));
         }
+        
+        [HttpGet]
+        public async Task<IActionResult> Resume()
+        {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+            }
 
+            var model = new ResumeViewModel
+            {
+                fname = user.UserName,
+                lname = user.Email,
+                Id = 3,
+                Label = user.UserName,
+                Age = 15,
+                Phone = user.UserName, 
+                Address = user.UserName, 
+                City = user.UserName,
+                Country = user.UserName
+
+            };
+
+            return View(model);
+        }
+        /*
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Resume(ResumeViewModel model)
+        {
+            var user = await _userManager.GetUserAsync(User);
+            return View(model);
+        }
+           this.CompanyName = company;
+            this.Position = position;
+            this.StartDate = startDate;
+            this.EndDate = endDate;
+        */
+        public async Task<IActionResult> workingexperience()
+        {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+            }
+            var a = new WorkingExperience("testA","kkjhkh","llkkjh",new DateTime(2010,2,2),new DateTime(2011,3,11));
+            var ab = new WorkingExperience("testB", "kkjhkh", "llkkjh", new DateTime(2010, 2, 2), new DateTime(2011, 3, 11));
+            var b = new WorkingExperience("testC", "kkjhkh", "llkkjh", new DateTime(2010, 2, 2), new DateTime(2011, 3, 11));
+
+            List<WorkingExperience> testt = new List<WorkingExperience>() ;
+            testt.Add(a);
+            testt.Add(ab);
+            testt.Add(b);
+            var model = new workingexperienceViewModel
+            {
+                CompanyName = "company",
+                Position = "position",
+                StartDate = new DateTime(1992,2,22),
+                EndDate = new DateTime(2018, 2, 22),
+                ResumeWorkingExperiences = testt
+
+            };
+
+
+            return View(model);
+        }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> SendVerificationEmail(IndexViewModel model)

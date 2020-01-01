@@ -15,6 +15,10 @@ namespace IdentityDemo.Views.Manage
 
         public static string ChangePassword => "ChangePassword";
 
+        public static string Resume => "Resume"; 
+
+        public static string workingexperience => "workingexperience";
+
         public static string ExternalLogins => "ExternalLogins";
 
         public static string TwoFactorAuthentication => "TwoFactorAuthentication";
@@ -22,6 +26,10 @@ namespace IdentityDemo.Views.Manage
         public static string IndexNavClass(ViewContext viewContext) => PageNavClass(viewContext, Index);
 
         public static string ChangePasswordNavClass(ViewContext viewContext) => PageNavClass(viewContext, ChangePassword);
+
+        public static string ResumeNavClass(ViewContext viewContext) => PageNavClass(viewContext, Resume); 
+
+        public static string workingexperienceNavClass(ViewContext viewContext) => PageNavClass(viewContext, workingexperience);
 
         public static string ExternalLoginsNavClass(ViewContext viewContext) => PageNavClass(viewContext, ExternalLogins);
 
