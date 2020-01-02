@@ -4,47 +4,97 @@
     ViewData.AddActivePage(ManageNavPages.workingexperience);
 }
 
-<h4>@ViewData["Title"]</h4>
 
-<div class="row">
-    <div class="col-md-6">
+
+<div class="relative" id="Experience">
+    <div class="module noPad experienceStyle__experience___nfkm9">
+        <h2 class="profileHeading">Experience</h2>
+       
+        
+        @foreach (WorkingExperience war in Model.ResumeWorkingExperiences)
+        {
+            <div class="card  mt-5 mb-5">
+                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="100000">
+                    <div class="w-100 carousel-inner" role="listbox">
+                        <ul>
+                            <li >
+                                <div class="tbl padTopMd fill" style="padding-left: 20px;padding-top: 10px;padding-bottom: 10px;">
+                                    <div class="cell skinny">
+                                        <span class="sqLogo tighten undefined smSqLogo defLogo">
+                                            <span><i></i></span>
+                                        </span>
+                                    </div>
+                                    <div class="cell">
+                                        <div >
+                                            <div style="position:absolute;left:auto" >@war.Position 
+                                            </div>
+                                            <div style="position:absolute;left:700px">
+                                                <div >
+                                                    <i class="icon-edit margRt"></i>
+                                                    <i class="icon-delete"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <div class="tbl fill padTopXs">
+                                            <div data-test="employer" style="position:absolute;left:auto">
+                                                <a href="" target="_blank" rel="noopener noreferrer">@war.CompanyName</a>
+                                            </div>
+                                            <div data-test="employmentperiod" style="position:absolute;left:600px">
+                                                @war.StartDate.Day/@war.StartDate.Month/@war.StartDate.Year  &nbsp;--&nbsp;@war.EndDate.Day/@war.EndDate.Month/@war.EndDate.Year
+                                            </div>
+                                            <br />
+                                        </div>
+                                        <label data-test="location" class="block subtle padTopXs"> @war.Position</label>
+                                        <p data-test="description" class="preWrap padTop experienceStyle__description___1wJ2R">
+                                            Description: @war.CompanyName
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<div >
+    <div>
+        <h1>Add Experience</h1>
         <form method="post">
             <div asp-validation-summary="All" class="text-danger"></div>
 
-            <div >
+            <div>
                 <label asp-for="CompanyName">CompanyName</label>
                 <input asp-for="CompanyName" class="form-control" disabled />
             </div>
 
-            <div >
+            <div>
+                <label asp-for="CompanyName">Position</label>
+                <input asp-for="CompanyName" class="form-control" disabled />
+            </div>
+            <div>
                 <label asp-for="Descritpion">Descritpion</label>
                 <input asp-for="Descritpion" class="form-control" disabled />
             </div>
-            <div >
+            <div>
                 <label asp-for="StartDate">StartDate</label>
                 <input asp-for="StartDate" class="form-control" disabled />
             </div>
-            <div >
+            <div>
                 <label asp-for="EndDate">EndDate</label>
                 <input asp-for="EndDate" class="form-control" disabled />
             </div>
 
-            <button type="submit" class="btn btn-default">Save</button>
+            <button type="submit" class="btn btn-default">Add</button>
         </form>
-        <table>
-            @foreach (WorkingExperience war in Model.ResumeWorkingExperiences)
-            {
-            <tr>
-                <td>@war.CompanyName</td>
-                <td>@war.Descritpion</td>
-                <td>@war.Position</td>
-                <td>@war.StartDate</td>
-                <td>@war.EndDate</td>
-            </tr>
-            }
-        </table>
     </div>
 </div>
+
 
 
 @section Scripts {

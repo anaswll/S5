@@ -31,7 +31,7 @@
             {
                 <div class="text-center">
                     <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="rounded-circle" alt="avatar">
-                    <input type="file" />
+                   
 
                 </div><br>
 
@@ -57,7 +57,7 @@
             {
                 <div class="text-center">
                     <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
-                    <input type="file" />
+                    
 
                 </div><br>
 
@@ -87,17 +87,12 @@
             <ul class="nav nav-tabs">
                 @await Html.PartialAsync("_ManageNav")
             </ul>
+        <br />
 
+            @RenderBody()
 
-            <div class="tab-content">
-                <div class="tab-pane active" id="home">
-                    <br>
-                    @RenderBody()
-                    <hr/>
-                </div><!--/tab-pane-->
-            </div><!--/tab-pane-->
         </div><!--/tab-content-->
-
+        
     </div><!--/col-9-->
 </div><!--/row-->
 
